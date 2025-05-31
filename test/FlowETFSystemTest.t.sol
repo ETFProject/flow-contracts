@@ -180,8 +180,6 @@ contract FlowETFSystemTest is Test {
     function testETFWeightRedistribution() public {
       uint256 newWeight1 = 6000;
       uint256 newWeight2 = 1000;
-      uint256 assetIndex1 = etfVault.assetIndex(address(wflow));
-      uint256 assetIndex2 = etfVault.assetIndex(address(usdc));
       _setupAssets();
       eip7702.initialize(address(etfVault), agentWallet);
       vm.prank(agentWallet);
@@ -193,8 +191,10 @@ contract FlowETFSystemTest is Test {
       newWeights[0] = newWeight1;
       newWeights[1] = newWeight2;
       etfVault.updateAllAssetWeights(newTokens,newWeights);
+      uint256 assetIndex1 = etfVault.assetIndex(address(wflow));
+      uint256 assetIndex2 = etfVault.assetIndex(address(usdc));
       (,uint256 targetWeight1,,) = etfVault.assets(assetIndex1);
-      (,uint256 targetWeight2,,)= etfVault.assets(assetIndex2);
+      (,uint256 targetWeight2,,) = etfVault.assets(assetIndex2);
       assertEq(newWeight1, targetWeight1);
     }
     

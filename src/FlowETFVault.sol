@@ -192,7 +192,7 @@ contract FlowETFVault is ERC20, Ownable, ReentrancyGuard, Pausable {
 
     function updateSingleAssetWeight(address token, uint256 weight) internal validAsset(token) {
       uint256 id = assetIndex[token];
-      Asset memory asset = assets[id];
+      Asset storage asset = assets[id];
       asset.targetWeight = weight;
 
     }
