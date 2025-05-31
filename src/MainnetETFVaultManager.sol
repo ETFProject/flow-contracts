@@ -97,12 +97,10 @@ contract MainnetETFVaultManager {
         address tokenOut,
         uint256 amountIn
     ) internal returns (uint256[] memory amounts) {
-        //transfer tokens from sender to this contract
-        IERC20(tokenIn).transferFrom(msg.sender, address(this), amountIn);
         // Approve the router to spend the tokens
-        acceptedToken.approve(
+        IERC20(tokenIn).approve(
             address(aeroRouter),
-            acceptedToken.balanceOf(address(this))
+            amountIn
         );
         //create dynamyc array of RouteStruct and add token path
         IAerodromeRouter.Route[] memory routes = new IAerodromeRouter.Route[](
@@ -119,7 +117,7 @@ contract MainnetETFVaultManager {
             amountIn, //acceptedToken
             returnAmounts[1], //min usdc we want back,
             routes, //trade path,
-            msg.sender, //receiver of the swap
+            address(this), //receiver of the swap
             block.timestamp
         );
     }
