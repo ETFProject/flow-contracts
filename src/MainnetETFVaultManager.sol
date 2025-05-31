@@ -27,6 +27,7 @@ contract MainnetETFVaultManager {
         address[] memory tokens,
         uint256[] memory weights
     ) onlyAgent {
+        //Make sure to transfer assets from LLMAgentWallet to this contract
         //For loop for swapping
         for (uint i = 0; i < tokens.length; i++) {
             swap(
@@ -44,6 +45,7 @@ contract MainnetETFVaultManager {
         for (uint256 i = 0; i < tokens.length; i++) {
             swap(tokens[i], acceptedToken, amounts);
         }
+        //Logic to expose/change allowances so that LLMAgent can bridge assets back to flow
     }
 
     function rebalance(
@@ -52,6 +54,12 @@ contract MainnetETFVaultManager {
         uint256[] memory newRawAmounts,
         address[] memory newTokens
     ) onlyAgent {
+        for (uint256 i = 0; i < oldTokens.length; i++) {
+            swap(oldTokens[i], acceptedToken, oldRawAmounts[i]);
+        }
+        for (uint256 i = 0; i < newTokens.length; i++) {
+            swap(acceptedToken, newTokens[i], newRawAmounts[i]);
+        }
         //This one is a little tricky
         //Could maybe swap raw number of assets into stablecoin and then swap back into new assets
         //I think raw amounts is better actually, puts the impetus of logic handling onto flow contracts
