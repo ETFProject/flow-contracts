@@ -1,0 +1,38 @@
+# Compiler files
+cache/
+out/
+
+# Ignores development broadcast logs
+!/broadcast
+/broadcast/*/31337/
+/broadcast/**/dry-run/
+
+# Docs
+docs/
+
+# Dotenv file
+.env
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Editor directories and files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Vim swap files
+*.swp
+*.swo
+
+# Environment variable files (local overrides)
+.env.local
+.env.*.local
+
+# Test coverage output
+coverage/
+
+# Log files
+*.log

@@ -1,0 +1,26 @@
+{
+  "network": "flow-evm-testnet",
+  "chainId": 545,
+  "rpcUrl": "https://twilight-thrumming-putty.flow-testnet.quiknode.pro/3cb85c88012d5976c57427e2448457210054d84b/",
+  "explorer": "https://evm-testnet.flowscan.io",
+  "contracts": {
+    "etfVault": "0xe57dC45a1e5E267D2c1f39a26cBC852CB08FBE31",
+    "eip7702Implementation": "0xa31B6423587810C2264Ec06fF3b028D6359fbd2c",
+    "assetFactory": "0x2e3746fAfba8e075612aD00e06B55ef21C055F79"
+  },
+  "assets": {
+    "WFLOW": "0x9990f7Ea491c7e9db856A101B98Ce4332891E582",
+    "USDC": "0x59B9F8DE8B243cdF985E43E06b1e47063B89a320",
+    "WETH": "0xe4B4c3B27f2E54bB4101a546bEA0B481eB5e407f",
+    "ankrFLOW": "0x0044004C012FFbFc06a06d802adA516eA3E2296a",
+    "TRUMP": "0x3DC8bb83c34F053f88De466Fb32c7603D1D693d4"
+  },
+  "agentWallet": "0xb067fB16AFcABf8A8974a35CbCee243B8FDF0EA1",
+  "deployer": "0xb067fB16AFcABf8A8974a35CbCee243B8FDF0EA1",
+  "deploymentStatus": "SUCCESS",
+  "deploymentDate": "2025-05-31T13:02:00Z",
+  "testingUrls": {
+    "etfVault": "https://evm-testnet.flowscan.io/address/0xe57dC45a1e5E267D2c1f39a26cBC852CB08FBE31",
+    "eip7702": "https://evm-testnet.flowscan.io/address/0xa31B6423587810C2264Ec06fF3b028D6359fbd2c"
+  }
+}

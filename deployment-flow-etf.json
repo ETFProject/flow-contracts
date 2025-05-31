@@ -1,0 +1,20 @@
+{
+  "network": "flow-evm-testnet",
+  "chainId": 545,
+  "rpcUrl": "https://testnet.evm.nodes.onflow.org",
+  "explorer": "https://evm-testnet.flowscan.io",
+  "contracts": {
+    "etfVault": "0xAf238d3f81773C42b6F4212034A8a735Cd18cbC5",
+    "eip7702Implementation": "0x00908d528C53Ca7d802dDC91e3b38B9A6095c680",
+    "assetFactory": "0x8Cdb066f5190efF591f65C8dedA667D8e45665B3"
+  },
+  "assets": {
+    "WFLOW": "0xa31265A08Df95E386F81CdCEF8bc9647F3f7fc5c",
+    "USDC": "0xbdF1C48117ad79D21DdfeC4F8fD8a81eCF8d5eBf",
+    "WETH": "0x4E2831619304c4581ccb9B2EE0411585a76a3904",
+    "ankrFLOW": "0xD2BF83F4C3c293c7EE3fa20b60c1dBa0f358292F",
+    "TRUMP": "0x49fcfa796Faca55208e0c5757FF4E71520Df6c91"
+  },
+  "agentWallet": "0xb067fB16AFcABf8A8974a35CbCee243B8FDF0EA1",
+  "deployer": "0xb067fB16AFcABf8A8974a35CbCee243B8FDF0EA1"
+}
