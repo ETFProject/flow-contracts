@@ -42,6 +42,10 @@ contract FlowETFVault is ERC20, Ownable, ReentrancyGuard, Pausable {
     // ETF assets
     Asset[] public assets;
     mapping(address => uint256) public assetIndex; // token => index in assets array
+    //Buggy implementation, what happens when asset is removed and then added again
+    //remove doesn't remove from array but sets active to false
+    //because it still exists though the assetIndex returns the deactivated asset
+    //Could potentially use rebalancing logic with another function to switch to active again
     mapping(address => bool) public supportedTokens;
     
     // Cross-chain management
