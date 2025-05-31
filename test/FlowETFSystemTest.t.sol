@@ -177,6 +177,26 @@ contract FlowETFSystemTest is Test {
         assertEq(eip7702.getAgent(), agentWallet);
         assertEq(eip7702.getNonce(), 1);
     }
+    function testETFWeightRedistribution() public {
+      uint256 newWeight1 = 6000;
+      uint256 newWeight2 = 1000;
+      _setupAssets();
+      eip7702.initialize(address(etfVault), agentWallet);
+      vm.prank(agentWallet);
+      address[] memory newTokens = new address[] (2);
+      newTokens[0] = address(wflow);
+      newTokens[1] = address(usdc);
+
+      uint256[] memory newWeights = new uint256[] (2);
+      newWeights[0] = newWeight1;
+      newWeights[1] = newWeight2;
+      etfVault.updateAllAssetWeights(newTokens,newWeights);
+      uint256 assetIndex1 = etfVault.assetIndex(address(wflow));
+      uint256 assetIndex2 = etfVault.assetIndex(address(usdc));
+      (,uint256 targetWeight1,,) = etfVault.assets(assetIndex1);
+      (,uint256 targetWeight2,,) = etfVault.assets(assetIndex2);
+      assertEq(newWeight1, targetWeight1);
+    }
     
     function testEIP7702BatchExecution() public {
         _setupAssets();
