@@ -189,6 +189,21 @@ contract FlowETFVault is ERC20, Ownable, ReentrancyGuard, Pausable {
         
         emit AssetRebalanced(token, currentBalance);
     }
+
+    function updateSingleAssetWeight(address token, uint256 weight) internal validAsset(token) {
+      uint256 id = assetIndex[token];
+      Asset memory asset = assets[id];
+      asset.targetWeight = weight;
+
+    }
+    function updateAllAssetWeights(address[] memory tokens, uint256[] memory weights) external onlyAgent{
+      for (uint256 index = 0; index < tokens.length; index++) {
+        updateSingleAssetWeight(tokens[index],weights[index]);
+      }
+      if (getTotalTargetWeight() != BASIS_POINTS) {
+        revert InvalidWeight();
+      }
+    }
     
     // =============== ETF CORE FUNCTIONS ===============
     
