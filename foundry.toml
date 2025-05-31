@@ -15,8 +15,8 @@ flow_mainnet = "https://mainnet.evm.nodes.onflow.org"
 local = "http://127.0.0.1:8545"
 
 [etherscan]
-flow_testnet = { key = "${FLOW_ETHERSCAN_API_KEY}", url = "https://evm-testnet.flowscan.io/api" }
-flow_mainnet = { key = "${FLOW_ETHERSCAN_API_KEY}", url = "https://evm.flowscan.io/api" }
+#flow_testnet = { key = "${FLOW_ETHERSCAN_API_KEY}", url = "https://evm-testnet.flowscan.io/api" }
+#flow_mainnet = { key = "${FLOW_ETHERSCAN_API_KEY}", url = "https://evm.flowscan.io/api" }
 
 # EIP-7702 specific profile for testing
 [profile.eip7702]

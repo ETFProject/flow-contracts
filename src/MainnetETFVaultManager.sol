@@ -26,7 +26,7 @@ contract MainnetETFVaultManager {
         address _agentEOA,
         address _factory,
         address _aeroRouter
-    ) public {
+    ) {
         acceptedToken = ERC20(_acceptedToken);
         agentEOA = _agentEOA;
         factory = _factory;
@@ -37,7 +37,8 @@ contract MainnetETFVaultManager {
         uint256 amount,
         address[] memory tokens,
         uint256[] memory weights
-    ) public onlyAgent {
+    ) public {
+      acceptedToken.transferFrom(msg.sender,address(this),amount);
         //Make sure to transfer assets from LLMAgentWallet to this contract
         //For loop for swapping
         for (uint i = 0; i < tokens.length; i++) {
