@@ -53,7 +53,7 @@ contract AddLiquidityToTokens is Script {
             // Add token liquidity (500 tokens)
             token.addTokenLiquidity(500 * 1e18);
             
-            console.log("Liquidity added to", token.symbol(), "- USDC:", liquidityPerToken, "Tokens: 500");
+            //console.log("Liquidity added to", token.symbol(), "- USDC:", liquidityPerToken, "Tokens: 500");
         }
         
         vm.stopBroadcast();
